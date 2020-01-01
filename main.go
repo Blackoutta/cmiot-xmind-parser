@@ -52,7 +52,7 @@ func main() {
 	fmt.Println(fmt.Sprintf("总测试点数量: %v", totalCount))
 }
 
-func nextAttached(a []interface{}){
+func nextAttached(a []interface{}) {
 	for _, v := range a {
 		aa := v.(map[string]interface{})
 		if b := aa["children"]; b != nil {
@@ -61,7 +61,7 @@ func nextAttached(a []interface{}){
 			naa := na.([]interface{})
 			nextAttached(naa)
 		} else {
-			totalCount ++
+			totalCount++
 		}
 	}
 }
@@ -91,6 +91,6 @@ func extractContent(xmindFileName string, contentFileName string) []byte {
 
 func HandleError(msg string, err error) {
 	if err != nil {
-		log.Fatalln(fmt.Sprintf(msg + ": %v", err))
+		log.Fatalln(fmt.Sprintf(msg+": %v", err))
 	}
 }
