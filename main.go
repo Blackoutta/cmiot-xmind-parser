@@ -16,7 +16,14 @@ var (
 )
 
 func main() {
+	// check command-line arguments
+	if len(os.Args) < 2 {
+		fmt.Println("使用方法：./xmindparser [pathToFile]...")
+		os.Exit(1)
+	}
+
 	xmindFilePaths := os.Args[1:]
+
 	for _, v := range xmindFilePaths {
 		// extract the content of content.json from .xmind file
 		xmindContent := extractContent(v, contentFileName)
@@ -33,7 +40,7 @@ func main() {
 
 		// dealing with maps with 0 nodes
 		if c == nil {
-			log.Printf("The map: %v doesn't have any children node, please populate it first. Skipping this file.", v)
+			log.Printf("The map: %v doesn't have any children node, please populate it first. Skipping this file.\n\n", v)
 			continue
 		}
 
