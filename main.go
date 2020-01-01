@@ -40,7 +40,7 @@ func main() {
 
 		// dealing with maps with 0 nodes
 		if c == nil {
-			log.Printf("The map: %v doesn't have any children node, please populate it first. Skipping this file.\n\n", v)
+			log.Printf("The map: %v doesn't have any child nodes, please populate it first. Skipping this file.\n\n", v)
 			continue
 		}
 
